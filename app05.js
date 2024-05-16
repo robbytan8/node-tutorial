@@ -8,13 +8,13 @@ const server = http.createServer((req, res) => {
   let fileLocation;
   switch (q.pathname) {
     case 'home':
-      fileLocation = 'public/views/index.html';
+      fileLocation = 'views/index.html';
       break;
     case 'about':
-      fileLocation = 'public/views/about.html';
+      fileLocation = 'views/about.html';
       break;
     default:
-      fileLocation = 'public/views/about.html';
+      fileLocation = 'views/about.html';
   }
   fs.readFile(fileLocation, (err, data) => {
     if (err) {

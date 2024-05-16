@@ -5,7 +5,7 @@ const url = require('url');
 const server = http.createServer((req, res) => {
   const q = url.parse(req.url, true);
   if (req.method === 'GET' && q.path === '/login') {
-    fs.readFile('public/views/login.html', (err, data) => {
+    fs.readFile('views/login.html', (err, data) => {
       if (err) {
         res.writeHead(404, {'Content-type': 'text/html'});
         return res.end('404 Not Found');
