@@ -1,0 +1,54 @@
+extends ../layouts/master
+
+block web-content
+  // CONTENT HEADER (PAGE HEADER)
+  div.content-header
+    div.container-fluid
+      div.row.mb-2
+        div.col-sm-6
+          h1.m-0.text-dark Dashboard
+        div.col-sm-6
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item Dashboard
+            li.breadcrumb-item.active Citizen Management
+  // MAIN CONTENT
+  div.content
+    div.container-fluid
+      div.card
+        div.card-body.p-4
+          div.table-responsive
+            table.table.table-striped(id="table-citizen")
+              thead
+                tr
+                  th ID
+                  th Name
+                  th Address
+                  th Family Card ID - Head Name
+              tbody
+                tr
+                  td 327204080819880001
+                  td John Doe
+                  td Dummy Address 01
+                  td 0000001 - John Doe
+                tr
+                  td 327204101019900001
+                  td Susan Bones
+                  td Dummy Address 01
+                  td 0000001 - John Doe
+                tr
+                  td 3272040104198580001
+                  td Richard Max
+                  td Dummy Address 03
+                  td 0000002 - Richard Max
+
+block web-js
+  //  DataTable
+  script(src="/plugins/datatables/jquery.dataTables.min.js")
+  script.
+    $(function () {
+      $('#table-citizen').DataTable()
+    })
+
+block web-css
+  link(rel="stylesheet", href="/css/dataTables.bootstrap4.min.css")
+  link(rel="stylesheet", href="/css/jquery.dataTables.min.css")

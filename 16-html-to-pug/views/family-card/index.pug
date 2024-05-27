@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title Node.js, Express, and Pug
+    link(rel="stylesheet", href="/css/fontawesome.min.css")
+    link(rel="stylesheet", href="/css/adminlte.min.css")
+    link(href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet")
+    link(rel="stylesheet", href="/css/dataTables.bootstrap4.min.css")
+    link(rel="stylesheet", href="/css/jquery.dataTables.min.css")
+  body.hold-transition.sidebar-mini.sidebar-collapse
+    div.wrapper
+      // NAVIGATION BAR
+      nav.main-header.navbar.navbar-expand.navbar-white.navbar-light.border-bottom
+        // LEFT NAVBAR LINKS
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(data-widget="pushmenu", href="#")
+              i.fa.fa-bars
+          li.nav-item.d-none.d-sm-inline-block
+            a.nav-link(href="/home") Dashboard
+        // RIGHT NAVBAR LINKS
+        ul.navbar-nav.ml-auto
+          li.nav-item.dropdown
+            a.nav-link(data-toggle="dropdown", href="#")
+              i.fa.fa-cog
+            div.dropdown-menu.dropdown-menu-sm.dropdown-menu-right
+              a.dropdown-item(href="#") Settings
+              div.dropdown-divider
+              a.dropdown-item(href="#") Logout
+
+      // MAIN SIDEBAR CONTAINER
+      aside.main-sidebar.sidebar-dark-primary.elevation-4
+        // BRAND LOGO
+        a.brand-link(href="/home")
+          img.brand-image.img-circle.elevation-3(src="/img/app-logo.png", alt="AdminLTE Logo", style="opacity: .8")
+          span.brand-text.font-weight-light Node.js, Express, and Pug
+
+        // SIDEBAR
+        div.sidebar
+          // SIDEBAR USER PANEL (OPTIONAL)
+          div.user-panel.mt-3.pb-3.mb-3.d-flex
+            div.image
+              img.img-circle.elevation-2(src="/img/user-photo-default.png", alt="User Image")
+            div.info
+              a.d-block(href="#") Robby Tan
+
+          //  SIDEBAR MENU
+          nav.mt-2
+            ul.nav.nav-pills.nav-sidebar.flex-column(data-widget="treeview", role="menu", data-accordion="false")
+              li.nav-item
+                a.nav-link(href="/home")
+                  i.nav-icon.fa.fa-dashboard
+                  p Dashboard
+              li.nav-item
+                a.nav-link(href="/fam-card")
+                  i.nav-icon.fa.fa-cube
+                  p Family Card Management
+              li.nav-item
+                a.nav-link(href="/citizen")
+                  i.nav-icon.fa.fa-book
+                  p Citizen Management
+
+      // CONTENT WRAPPER. CONTAINS PAGE CONTENT
+      div.content-wrapper
+        // CONTENT HEADER (PAGE HEADER)
+        div.content-header
+          div.container-fluid
+            div.row.mb-2
+              div.col-sm-6
+                h1.m-0.text-dark Dashboard
+              div.col-sm-6
+                ol.breadcrumb.float-sm-right
+                  li.breadcrumb-item Dashboard
+                  li.breadcrumb-item.active Family Card Management
+        // MAIN CONTENT
+        div.content
+          div.container-fluid
+            div.card
+              div.card-header.p-4
+                a.btn.btn-success(href="/fam-card/create", role="button") Add New Family Card Data
+              div.card-body.p-4
+                div.table-responsive
+                  table.table.table-striped(id="table-fam-card")
+                    thead
+                      tr
+                        th ID
+                        th Family Head Name
+                    tbody
+                      tr
+                        td 0000001
+                        td John Doe
+                      tr
+                        td 0000002
+                        td Richard Max
+
+      // MAIN FOOTER
+      footer.main-footer
+        div.float-right.d-none.d-sm-inline
+        strong Copyright &copy; 2024
+          a(href="#") Node.js, Express, and Pug
+          span All rights reserved
+
+
+  // jQuery
+  script(src="/js/jquery.min.js")
+  // Bootstrap 4
+  script(src="/js/bootstrap.bundle.min.js")
+  // AdminLTE App
+  script(src="/js/adminlte.min.js")
+  // Sweetalert
+  script(src="/js/sweetalert.min.js")
+  //  DataTable
+  script(src="/plugins/datatables/jquery.dataTables.min.js")
+  script.
+    $(function () {
+      $('#table-fam-card').DataTable()
+    })
