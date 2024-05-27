@@ -47,3 +47,24 @@ Sample code using Node.js as server to catch request data from form and show it 
 
 Sample code how Node.js can access MySQL database. Please change connection attribute and database name to match your database. Run this file by using `node app07.js`
 
+### 08-basic-express
+
+Sample code how to use express in Node.js. Create new variable of express and pass it to http server.
+
+### 09-express-middleware
+Sample code how to simplify code in Node.js using express. Also code to explain request, response, and next in use parameter (middleware). Middleware is executed from top to bottom, and we also can process the next middleware using next.
+
+### 10-express-basic-routing
+Sample code how to handle different routes using express.
+
+### 11-express-body-request
+Sample code how express read body request. Using express.urlencoded to recognize incoming request object.
+
+### 12-express-routing-method
+Sample code how express using GET or POST to read body request and show it on page using response.
+
+### 13-express-router
+Separate middleware route to another file.
+
+### 14-express-and-html
+Using express to read HTML file. Using path to point out the file path.
