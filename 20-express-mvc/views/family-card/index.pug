@@ -1,0 +1,44 @@
+extends ../layouts/master
+
+block web-content
+  // CONTENT HEADER (PAGE HEADER)
+  div.content-header
+    div.container-fluid
+      div.row.mb-2
+        div.col-sm-6
+          h1.m-0.text-dark Dashboard
+        div.col-sm-6
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item Dashboard
+            li.breadcrumb-item.active Family Card Management
+  // MAIN CONTENT
+  div.content
+    div.container-fluid
+      div.card
+        div.card-header.p-4
+          a.btn.btn-success(href="/fam-card/create", role="button") Add New Family Card Data
+        div.card-body.p-4
+          div.table-responsive
+            table.table.table-striped(id="table-fam-card")
+              thead
+                tr
+                  th ID
+                  th Family Head Name
+              tbody
+                if familyCards !== undefined
+                  each fam_card in familyCards
+                    tr
+                      td #{fam_card.id}
+                      td #{fam_card.name}
+
+block web-js
+  //  DataTable
+  script(src="/plugins/datatables/jquery.dataTables.min.js")
+  script.
+    $(function () {
+      $('#table-fam-card').DataTable()
+    })
+
+block web-css
+  link(rel="stylesheet", href="/css/dataTables.bootstrap4.min.css")
+  link(rel="stylesheet", href="/css/jquery.dataTables.min.css")

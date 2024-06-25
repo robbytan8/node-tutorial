@@ -1,0 +1,26 @@
+extends ../layouts/master
+
+block web-content
+  // CONTENT HEADER (PAGE HEADER)
+  div.content-header
+    div.container-fluid
+      div.row.mb-2
+        div.col-sm-6
+          h1.m-0.text-dark Dashboard
+        div.col-sm-6
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item Dashboard
+            li.breadcrumb-item.active Family Card Management
+  // MAIN CONTENT
+  div.content
+    div.container-fluid
+      div.card
+        div.card-body.p-4
+          form(method="post" action="/fam-card/create")
+            div.form-group.row
+              label.col-form-label(for="fam-card-id") ID
+              input.form-control(id="fam-card-id", name="id", placeholder="e.g. 0000001", autofocus, required=)
+            div.form-group.row
+              label.col-form-label(for="name-id") Name
+              input.form-control(id="name-id", name="name", placeholder="e.g. John Doe", required)
+            button.btn.btn-primary(type="submit") Submit

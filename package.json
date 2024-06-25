@@ -1,21 +1,23 @@
 {
-  "name": "tutorial",
+  "name": "node-tutorial",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Code for Node.js Tutorial",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Robby Tan",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.0",
-    "pug": "^3.0.3"
+    "nodemon": "^3.1.0"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
-    "mysql": "^2.18.1"
+    "express-validator": "^7.1.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.8",
+    "pug": "^3.0.3"
   }
 }

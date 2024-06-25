@@ -1,0 +1,68 @@
+extends ../layouts/master
+
+block web-content
+  // CONTENT HEADER (PAGE HEADER)
+  div.content-header
+    div.container-fluid
+      div.row.mb-2
+        div.col-sm-6
+          h1.m-0.text-dark Dashboard
+        div.col-sm-6
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item
+              a(href="/") Dashboard
+            li.breadcrumb-item
+              a(href="/citizen") Citizen Management
+            li.breadcrumb-item.active Citizen New Data
+  // MAIN CONTENT
+  div.content
+    div.container-fluid
+      div.card
+        div.card-body.p-4
+          form(method="post" action="/citizen/create")
+            div.form-group.row
+              label.col-form-label(for="citizen-id") Citizen ID
+              input.form-control(id="citizen-id", name="id", placeholder="e.g. 327204080819880001", maxlength=100, autofocus, required)
+            div.form-group.row
+              label.col-form-label(for="name-id") Name
+              input.form-control(id="name-id", name="name", placeholder="e.g. John Doe", maxlength=100, required)
+            div.form-group.row
+              label.col-form-label(for="address-id") Address
+              textarea.form-control(id="address-id", name="address", placeholder="e.g. Sudirman Street 100", rows="4", cols="50", maxlength=300, required)
+            div.form-group.row
+              label.col-form-label(for="birth-id") Birth Date
+              input.form-control(id="birth-id", name="birth_date", type="date", required)
+            div.form-group.row
+              label.col-form-label(for="marital-id") Marital Status
+              select.form-control(id="marital-id", name="blood_type", required)
+                option(value="") --Select Marital Status--
+                option(value="Single") Single
+                option(value="Married") Married
+                option(value="Widow") Widow
+                option(value="Widower") Widower
+            div.form-group.row
+              label.col-form-label(for="job-id") Job
+              input.form-control(id="job-id", name="name", placeholder="e.g. John Doe", maxlength=100, required)
+            div.form-group.row
+              label.col-form-label(for="blood-id") Blood Type
+              select.form-control(id="blood-id", name="blood_type", required)
+                option(value="") --Select Blood Type--
+                option(value="A") A
+                option(value="B") B
+                option(value="O") O
+                option(value="AB") AB
+            div.form-group.row
+              label.col-form-label(for="religion-id") Religion
+              select.form-control(id="religion-id", name="religion", required)
+                option(value="") --Select Religion--
+                option(value="Budha") Budha
+                option(value="Hindu") Hindu
+                option(value="Islam") Islam
+                option(value="Katolik") Katolik
+                option(value="Kristen") Kristen
+            div.form-group.row
+              label.col-form-label(for="family-card-id") Family Card
+              select.form-control(id="family-card-id", name="fam_card_id")
+                each famCard in familyCards
+                  option(value=famCard.id) #{famCard.id} - #{famCard.name}
+            button.btn.btn-primary(type="submit") Submit

@@ -1,0 +1,34 @@
+extends ../layouts/master
+
+block web-content
+  // CONTENT HEADER (PAGE HEADER)
+  div.content-header
+    div.container-fluid
+      div.row.mb-2
+        div.col-sm-6
+          h1.m-0.text-dark Dashboard
+        div.col-sm-6
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item Dashboard
+            li.breadcrumb-item.active Citizen Management
+  // MAIN CONTENT
+  div.content
+    div.container-fluid
+      div.card
+        div.card-body.p-4
+          form(method="post" action="/citizen/create")
+            div.form-group.row
+              label.col-form-label(for="citizen-id") Citizen ID
+              input.form-control(id="citizen-id", name="id", placeholder="e.g. 327204080819880001", autofocus)
+            div.form-group.row
+              label.col-form-label(for="name-id") Name
+              input.form-control(id="name-id", name="name", placeholder="e.g. John Doe")
+            div.form-group.row
+              label.col-form-label(for="address-id") Address
+              textarea.form-control(id="address-id", name="address", placeholder="e.g. Sudirman Street 100", rows="4", cols="50")
+            div.form-group.row
+              label.col-form-label(for="family-card-id") Family Card
+              select.form-control(id="family-card-id", name="fam_card_id")
+                each famCard in famCards
+                  option(value=famCard.id) #{famCard.id} - #{famCard.name}
+            button.btn.btn-primary(type="submit") Submit

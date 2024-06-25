@@ -1,0 +1,38 @@
+extends ../layouts/master
+
+block web-content
+  // CONTENT HEADER (PAGE HEADER)
+  div.content-header
+    div.container-fluid
+      div.row.mb-2
+        div.col-sm-6
+          h1.m-0.text-dark Dashboard
+        div.col-sm-6
+          ol.breadcrumb.float-sm-right
+            li.breadcrumb-item
+              a(href="/") Dashboard
+            li.breadcrumb-item
+              a(href="/fam-card") Family Card Management
+            li.breadcrumb-item.active Family Card New Data
+  // MAIN CONTENT
+  div.content
+    div.container-fluid
+      if errors && errors.length > 0
+        div.alert.alert-danger
+          button.close(type="button", data-dismiss="alert") x
+          ul
+            each error in errors
+              li #{error}
+      div.card
+        div.card-body.p-4
+          form(method="post" action="/fam-card/create")
+            div.form-group.row
+              label.col-form-label(for="fam-card-id") ID
+              input.form-control(id="fam-card-id", name="id", placeholder="e.g. 0000001", maxlength=16, autofocus, required)
+            div.form-group.row
+              label.col-form-label(for="name-id") Name
+              input.form-control(id="name-id", name="name", placeholder="e.g. John Doe", maxlength=100, required)
+            div.form-group.row
+              label.col-form-label(for="address-id") Address
+              textarea.form-control(id="address-id", name="address", placeholder="e.g. Surya Sumantri Street 01", rows=4, required)
+            button.btn.btn-primary(type="submit") Submit
