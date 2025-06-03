@@ -23,6 +23,15 @@ class FamilyCard {
       callback(familyCards)
     })
   }
+
+  save(familyCard, callback) {
+    const query = 'INSERT INTO family_card (id, family_head_name, address) VALUES (?, ?, ?)'
+    this.db.query(query, [familyCard.id, familyCard.name, familyCard.address], (err, results) => {
+      if (err) throw err
+      this.db.end()
+      callback(familyCard)
+    })
+  }
 }
 
 module.exports = FamilyCard

@@ -24,12 +24,14 @@ block web-content
                 tr
                   th ID
                   th Family Head Name
+                  th Address
               tbody
                 if familyCards !== undefined
                   each fam_card in familyCards
                     tr
                       td #{fam_card.id}
                       td #{fam_card.name}
+                      td #{fam_card.address}
 
 block web-js
   //  DataTable

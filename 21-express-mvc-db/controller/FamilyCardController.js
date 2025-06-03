@@ -14,10 +14,19 @@ const create = (req, res) => {
 }
 
 const store = (req, res) => {
-  // familyCards.push(req.body);
-  const familyCard = new FamilyCard(req.body.id, req.body.name)
-  familyCard.save()
-  res.redirect('/fam-card')
+  const familyCard = new FamilyCard()
+  familyCard.save({
+    id: req.body.id,
+    name: req.body.name,
+    address: req.body.address
+  }, (err, insertId) => {
+    if (err) {
+      console.error('Error saving family card:', err)
+      return res.render('family-card/create', {errors: 'Invalid data'});
+    }
+    console.log('Family card saved successfully')
+    res.redirect('/fam-card')
+  })
 }
 
 module.exports = {index, create, store}

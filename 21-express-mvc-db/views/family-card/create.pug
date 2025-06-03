@@ -19,8 +19,11 @@ block web-content
           form(method="post" action="/fam-card/create")
             div.form-group.row
               label.col-form-label(for="fam-card-id") ID
-              input.form-control(id="fam-card-id", name="id", placeholder="e.g. 0000001", autofocus, required=)
+              input#fam-card-id.form-control(name="id", placeholder="e.g. 0000001", maxlength=16, autofocus, required)
             div.form-group.row
               label.col-form-label(for="name-id") Name
-              input.form-control(id="name-id", name="name", placeholder="e.g. John Doe", required)
+              input#name-id.form-control(name="name", placeholder="e.g. John Doe", maxlength=100, required)
+            div.form-group.row
+              label.col-form-label(for="name-id") Address
+              textarea#address-id.form-control(name="address", placeholder="e.g. Dummy Street 200th", maxlength=300, required, rows=4)
             button.btn.btn-primary(type="submit") Submit
