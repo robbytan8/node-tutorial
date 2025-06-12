@@ -1,22 +1,39 @@
 const Citizen = require('../model/Citizen')
-const FamilyCard = require('../model/FamilyCard')
+const { body, validationResult } = require("express-validator");
 
-const index = async (req, res) => {
-  try {
-    const citizen = new Citizen();
-    const citizens = await citizen.all()
-    res.json(citizens)
-  } catch (e) {
-    res.status(500).json({
-      error: e.message
+const index = (req, res) => {
+  const citizen = new Citizen();
+  citizen.all()
+    .then((citizens) => {
+      res.status(201).json(citizens)
     })
-  }
+    .catch((error) => {
+      res.status(500).json({error: error});
+    })
 }
 
 const store = (req, res) => {
-  const newCitizen = new Citizen(req.body.id, req.body.name, req.body.address, req.body.fam_card_id)
-  newCitizen.save()
-  res.redirect('/citizen')
+  const {id, name, address, marital_status, birth_date, job, blood_type, religion, family_card_id} = req.body;
+  const newCitizen = {
+    id,
+    name,
+    address,
+    marital_status,
+    birth_date,
+    job,
+    blood_type,
+    religion,
+    family_card_id
+  };
+  const citizen = new Citizen();
+
+  citizen.save()
+    .then(() => {
+      res.status(201).json({message: 'Citizen created successfully'});
+    })
+    .catch((error) => {
+      res.status(500).json({error: error});
+    });
 }
 
-module.exports = {index, store}
+module.exports = {index}
